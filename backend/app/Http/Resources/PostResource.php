@@ -15,10 +15,11 @@ class PostResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
+            'user' => $this->user->name,
             'id' => $this->id,
             'title' => $this->title,
             'description' => $this->descritpion,
-            'created_at' => $this->created_at,
+            'created_at' => $this->created_at->diffForHumans(),
         ];
     }
 }
