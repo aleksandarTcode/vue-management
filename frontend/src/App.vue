@@ -1,6 +1,25 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+
+import {ref, onMounted} from 'vue'
+import axios from 'axios'
+
+
+const posts = ref([])
+
+onMounted(async () => {
+
+  let res = await axios.get('http://vue-management.test/api/posts')
+
+  posts.value = res.data.data
+
+  return {
+    posts
+  }
+
+})
+
+
+
 </script>
 
 <template>
@@ -9,7 +28,7 @@ import TheWelcome from './components/TheWelcome.vue'
 
   <h2>Posts</h2>
 
-<!--  <button class="bg-blue-500 text-white hover:bg-blue-700 rounded py-2 px-4">Create</button>-->
+  {{posts}}
 
    <table class="min-w-full divide-y divide-gray-300">
      <thead>
