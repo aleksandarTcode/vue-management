@@ -4,17 +4,9 @@ import TheWelcome from './components/TheWelcome.vue'
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
+  <button class="bg-blue-500 text-white hover:bg-blue-700 rounded py-2 px-4">Create</button>
 
-  <main>
-    <TheWelcome />
-  </main>
 </template>
 
 <style scoped>
