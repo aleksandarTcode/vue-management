@@ -28,7 +28,6 @@ onMounted(async () => {
 
   <h2>Posts</h2>
 
-  {{posts}}
 
    <table class="min-w-full divide-y divide-gray-300">
      <thead>
@@ -41,19 +40,14 @@ onMounted(async () => {
      </thead>
 
      <tbody>
-      <tr class="hover-me">
-        <td class="px-6 py-3 text-start text-sm uppercase">4</td>
-        <td class="px-6 py-3 text-start text-sm uppercase">Aleksandar</td>
-        <td class="px-6 py-3 text-start text-sm uppercase">Post1</td>
-        <td class="px-6 py-3 text-start text-sm uppercase">11-3-2024</td>
+      <tr class="hover-me" v-for="post in posts" :key="post.id">
+        <td class="px-6 py-3 text-start text-sm uppercase">{{post.id}}</td>
+        <td class="px-6 py-3 text-start text-sm uppercase">{{post.user}}</td>
+        <td class="px-6 py-3 text-start text-sm uppercase">{{post.title}}</td>
+        <td class="px-6 py-3 text-start text-sm uppercase">{{post.created_at}}</td>
       </tr>
 
-      <tr class="hover-me">
-        <td class="px-6 py-3 text-start text-sm uppercase">5</td>
-        <td class="px-6 py-3 text-start text-sm uppercase">Joe</td>
-        <td class="px-6 py-3 text-start text-sm uppercase">Post2</td>
-        <td class="px-6 py-3 text-start text-sm uppercase">12-3-2024</td>
-      </tr>
+
 
      </tbody>
 
