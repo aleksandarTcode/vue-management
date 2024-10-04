@@ -17,9 +17,9 @@ onMounted(getPosts)
 
   <div class="grid grid-cols-1 gap-2 mt-2 p-4">
 
-    <h2>Posts</h2>
+    <h1>Posts</h1>
 
-<!--    <router-link to="/test">Click Here For Example Link</router-link>-->
+    <router-link class="w-1/6 bg-blue-500 text-white text-center rounded px-4 py-2" :to="{name: 'posts.create'}">Create New Post</router-link>
 
     <table class="min-w-full divide-y divide-gray-300">
       <thead>
