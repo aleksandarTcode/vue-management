@@ -9,3 +9,5 @@ use Illuminate\Support\Facades\Route;
 //})->middleware('auth:sanctum');
 
 Route::get('/posts', [PostController::class,'index']);
+
+Route::delete('/posts/{post}', [PostController::class, 'destroy']);
