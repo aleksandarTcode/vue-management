@@ -2,23 +2,12 @@
 <script setup>
 
 import {ref, onMounted} from 'vue'
-import axios from 'axios'
+import usePosts from "@/composables/posts.js";
+
+const {posts, getPosts} = usePosts()
 
 
-const posts = ref([])
-
-onMounted(async () => {
-
-  let res = await axios.get('http://vue-management.test/api/posts')
-
-  posts.value = res.data.data
-
-  return {
-    posts
-  }
-
-})
-
+onMounted(getPosts)
 
 
 </script>
@@ -29,6 +18,7 @@ onMounted(async () => {
 
     <h2>Posts</h2>
 
+<!--    <router-link to="/test">Click Here For Example Link</router-link>-->
 
     <table class="min-w-full divide-y divide-gray-300">
       <thead>
