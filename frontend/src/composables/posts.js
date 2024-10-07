@@ -12,6 +12,17 @@ export default function usePosts() {
 
     }
 
+    const storePost = async(post) => {
+
+        try {
+            res = await axios.post('http://vue-management.test/api/posts')
+
+        } catch (err){
+            console.log(err)
+        }
+
+    }
+
     const deletePost = async (id) => {
 
         if(!window.confirm("Are you sure you want to delete this post?")){
@@ -32,6 +43,7 @@ export default function usePosts() {
     return {
         posts,
         getPosts,
-        deletePost
+        deletePost,
+        storePost,
     }
 }
