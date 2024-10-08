@@ -14,7 +14,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        return PostResource::collection(Post::with('user')->get());
+        return PostResource::collection(Post::with('user')->latest()->get());
     }
 
     /**
@@ -30,7 +30,9 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request)
     {
-        dd('works');
+        $post = Post::create($request->validated());
+
+        return new PostResource($post);
     }
 
     /**
