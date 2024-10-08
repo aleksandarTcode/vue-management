@@ -37,7 +37,7 @@ onMounted(getPosts)
       <tr class="hover-me" v-for="(post, index) in posts" :key="post.id">
         <td class="px-6 py-3 text-start text-sm uppercase">{{index+1}}</td>
         <td class="px-6 py-3 text-start text-sm uppercase">{{post.id}}</td>
-        <td class="px-6 py-3 text-start text-sm uppercase">{{post.user}}</td>
+        <td class="px-6 py-3 text-start text-sm uppercase">Aleksandar</td>
         <td class="px-6 py-3 text-start text-sm uppercase">{{post.title}}</td>
         <td class="px-6 py-3 text-start text-sm uppercase">{{post.created_at}}</td>
         <td><button @click="deletePost(post.id)" class="bg-red-500 text-white fond-bold rounded px-4 py-2 hover:bg-red-700">Delete</button></td>

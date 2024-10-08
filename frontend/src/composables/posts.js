@@ -15,7 +15,8 @@ export default function usePosts() {
     const storePost = async(post) => {
 
         try {
-            res = await axios.post('http://vue-management.test/api/posts')
+            await axios.post('http://vue-management.test/api/posts', post)
+            await router.push({name: 'posts.index'})
 
         } catch (err){
             console.log(err)
