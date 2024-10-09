@@ -7,6 +7,7 @@ export default function usePosts() {
     const posts = ref([])
 
     const router = useRouter()
+
     const getPosts = async () => {
 
         let res = await axios.get('http://vue-management.test/api/posts')

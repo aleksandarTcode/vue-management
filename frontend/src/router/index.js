@@ -2,6 +2,7 @@ import {createRouter, createWebHistory} from 'vue-router'
 import PostsIndex from "@/components/posts/PostsIndex.vue";
 import Example from "@/components/posts/Example.vue";
 import PostsCreate from "@/components/posts/PostsCreate.vue";
+import PostsEdit from "@/components/posts/PostsEdit.vue";
 
 const routes = [
     {
@@ -14,6 +15,12 @@ const routes = [
         path: '/posts/create',
         name: 'posts.create',
         component: PostsCreate
+    },
+
+    {
+        path: '/posts/:id/edit',
+        name: 'posts.edit',
+        component: PostsEdit
     },
 
     // {

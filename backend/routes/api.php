@@ -11,6 +11,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/posts', [PostController::class,'index']);
 
+Route::put('/posts', [PostController::class, 'store'])->middleware(Cors::class);
+
+Route::get('/posts/{post}', [PostController::class, 'show']);
+
 Route::delete('/posts/{post}', [PostController::class, 'destroy']);
 
-Route::post('/posts', [PostController::class, 'store'])->middleware(Cors::class);
+Route::patch('/posts{posts}', [PostController::class, 'update'])->middleware(Cors::class);
+

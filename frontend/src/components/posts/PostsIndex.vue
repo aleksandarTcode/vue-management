@@ -29,6 +29,7 @@ onMounted(getPosts)
         <th scope="col" class="px-6 py-3 text-start text-sm uppercase">User</th>
         <th scope="col" class="px-6 py-3 text-start text-sm uppercase">Title</th>
         <th scope="col" class="px-6 py-3 text-start text-sm uppercase">Date</th>
+        <th scope="col" class="px-6 py-3 text-start text-sm uppercase">Edit</th>
         <th scope="col" class="px-6 py-3 text-start text-sm uppercase">Delete</th>
       </tr>
       </thead>
@@ -40,6 +41,7 @@ onMounted(getPosts)
         <td class="px-6 py-3 text-start text-sm uppercase">Aleksandar</td>
         <td class="px-6 py-3 text-start text-sm uppercase">{{post.title}}</td>
         <td class="px-6 py-3 text-start text-sm uppercase">{{post.created_at}}</td>
+        <td><router-link :to="{name: 'posts.edit', params: {id: post.id}}"  class="bg-yellow-500 text-white fond-bold rounded px-4 py-2 hover:bg-yellow-700-700">Edit</router-link></td>
         <td><button @click="deletePost(post.id)" class="bg-red-500 text-white fond-bold rounded px-4 py-2 hover:bg-red-700">Delete</button></td>
       </tr>
 
