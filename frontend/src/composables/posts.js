@@ -38,6 +38,20 @@ export default function usePosts() {
 
     }
 
+    const updatePost = async(id) => {
+
+        try {
+            await axios.patch(`http://vue-management.test/api/posts/${id}`, post.value)
+            await router.push({name: 'posts.index'})
+
+        } catch (err){
+            console.log(err)
+        }
+
+    }
+
+
+
     const deletePost = async (id) => {
 
         if(!window.confirm("Are you sure you want to delete this post?")){
@@ -62,5 +76,6 @@ export default function usePosts() {
         getPost,
         deletePost,
         storePost,
+        updatePost,
     }
 }

@@ -21,7 +21,7 @@ const routes = [
         path: '/posts/:id/edit',
         name: 'posts.edit',
         component: PostsEdit,
-        props: true
+        props: true,
     },
 
     // {

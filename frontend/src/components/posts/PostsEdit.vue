@@ -1,24 +1,31 @@
 <script setup>
 
 import usePosts from "@/composables/posts.js";
-import {onMounted} from 'vue'
 
-const {post, getPost} = usePosts()
+const {post, getPost, updatePost} = usePosts();
+
+import {onMounted} from 'vue';
 
 const props = defineProps({
   id: {
     type: String,
-    requied: true,
+    required: true,
   }
 })
 
 onMounted(() => getPost(props.id))
+
+const editPost = async () => {
+
+  await updatePost(props.id)
+}
 
 </script>
 
 <template>
 
   <div class="grid grid-cols-3 gap-4">
+
 
     <form class="col-start-2 space-y-6" @submit.prevent="editPost">
       <div class="space-y-4 rounded-md shadow-sm">
