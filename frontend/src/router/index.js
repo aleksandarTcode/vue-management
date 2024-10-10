@@ -20,7 +20,8 @@ const routes = [
     {
         path: '/posts/:id/edit',
         name: 'posts.edit',
-        component: PostsEdit
+        component: PostsEdit,
+        props: true
     },
 
     // {

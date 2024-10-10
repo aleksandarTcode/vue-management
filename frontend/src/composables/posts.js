@@ -6,6 +6,8 @@ export default function usePosts() {
 
     const posts = ref([])
 
+    const post = ref([])
+
     const router = useRouter()
 
     const getPosts = async () => {
@@ -13,6 +15,14 @@ export default function usePosts() {
         let res = await axios.get('http://vue-management.test/api/posts')
 
         posts.value = res.data.data
+
+    }
+
+    const getPost = async (id) => {
+
+        let res = await axios.get(`http://vue-management.test/api/posts/${id}`)
+
+        post.value = res.data.data
 
     }
 
@@ -46,8 +56,10 @@ export default function usePosts() {
 
 
     return {
+        post,
         posts,
         getPosts,
+        getPost,
         deletePost,
         storePost,
     }

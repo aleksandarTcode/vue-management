@@ -1,10 +1,53 @@
 <script setup>
 
+import usePosts from "@/composables/posts.js";
+import {onMounted} from 'vue'
+
+const {post, getPost} = usePosts()
+
+const props = defineProps({
+  id: {
+    type: String,
+    requied: true,
+  }
+})
+
+onMounted(() => getPost(props.id))
+
 </script>
 
 <template>
 
-    <h1>Edit</h1>
+  <div class="grid grid-cols-3 gap-4">
+
+    <form class="col-start-2 space-y-6" @submit.prevent="editPost">
+      <div class="space-y-4 rounded-md shadow-sm">
+        <div>
+          <div class="mt-1">
+            <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
+            <input
+                v-model = "post.title"
+                type="text"
+                class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-5"
+            >
+          </div>
+        </div>
+
+        <div>
+          <div class="mt-1">
+            <label for="title" class="block text-sm font-medium text-gray-700">Description</label>
+            <textarea v-model = "post.description" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-5">
+            </textarea>
+          </div>
+        </div>
+
+        <button type="submit" class="bg-blue-500 text-white fond-bold rounded px-4 py-2 hover:bg-blue-700">Submit</button>
+
+      </div>
+    </form>
+
+  </div>
+
 </template>
 
 <style scoped>
