@@ -9,13 +9,15 @@ use Illuminate\Support\Facades\Route;
 //    return $request->user();
 //})->middleware('auth:sanctum');
 
-Route::get('/posts', [PostController::class,'index']);
+//Route::get('/posts', [PostController::class,'index']);
+//
+//Route::post('/posts', [PostController::class, 'store'])->middleware(Cors::class);
+//
+//Route::get('/posts/{post}', [PostController::class, 'show']);
+//
+//Route::delete('/posts/{post}', [PostController::class, 'destroy']);
+//
+//Route::patch('/posts/{post}', [PostController::class, 'update'])->middleware(Cors::class);
 
-Route::post('/posts', [PostController::class, 'store'])->middleware(Cors::class);
-
-Route::get('/posts/{post}', [PostController::class, 'show']);
-
-Route::delete('/posts/{post}', [PostController::class, 'destroy']);
-
-Route::patch('/posts/{post}', [PostController::class, 'update'])->middleware(Cors::class);
+Route::apiResource('posts', PostController::class)->middleware(Cors::class);
 
